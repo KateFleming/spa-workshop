@@ -1,5 +1,5 @@
 
-angular.module('controllers').controller('CityCtrl', function($scope, $routeParams, $log, geoLocation, forecast, news) {
+angular.module('controllers').controller('CityCtrl', function($scope, $routeParams, $log, geoLocation, forecast, news, background) {
   'use strict';
 
   this.cityName = $routeParams.city;
@@ -17,6 +17,14 @@ angular.module('controllers').controller('CityCtrl', function($scope, $routePara
       self.forecast = forecast.data;
       return news(self.cityName);
     })
+    .then(function() {
+      return background();
+    })
+//    .then(function(background) {
+//      //background();
+//      self.background = background.data;
+//      return true;
+//    })
     .then(function(news) {
       self.news = news;
     })
