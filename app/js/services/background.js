@@ -3,18 +3,12 @@ angular.module('services').factory('background', function($q, $http) {
   return function() {
     // The forecast.io API is not CORS enabled, so we need to proxy the all through
     // the Aerobatic proxy.
+    var url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=seattle&callback=JSON_CALLBACK';
+//    return $http.jsonp(url);
     return $http({
-      method: 'GET',
-      url: '/proxy',
-      headers: {
-        'format': 'json',
-        'tags': 'seattle, rain'
-      },
-      params: {
-        url: 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=seattle, rain',
-        cache: 1,
-        ttl: 1 // cache for 5 minutes
-      }
+      method: 'jsonp',
+      url: url,
+      responseType: 'json'
     });
   };
 });
