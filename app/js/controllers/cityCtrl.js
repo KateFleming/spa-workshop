@@ -17,13 +17,10 @@ angular.module('controllers').controller('CityCtrl', function($scope, $routePara
       self.forecast = forecast.data;
       return news(self.cityName);
     })
-    .then(function() {
-      return background();
-    })
-//    .then(function(background) {
-//      //background();
-//      self.background = background.data;
+//    .then(function() {
 //      return true;
+      //return background();
+//    })
 //    })
     .then(function(news) {
       self.news = news;
