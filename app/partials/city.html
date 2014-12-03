@@ -1,9 +1,9 @@
-<h1>{{this.cityName}}</h1>
 
-<h3>Forecast</h3>
-<div>{{this.forecast.minutely.summary}}</div>
+<h1 class="city">{{this.cityName}}</h1>
+<div class="temp">{{this.forecast.currently.temperature}}</div>
+<div class="summary">{{this.forecast.currently.summary}}</div>
 
-<h3>News</h3>
+<h3 class="recent">News</h3>
 <ul>
 <div data-ng-repeat="title in this.news">
   <li>{{title.title}}</li>
